@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Speed.qml</file>
+        <file>SpeedFuel.qml</file>
+        <file>SpeedNeedle.qml</file>
+    </qresource>
+</RCC>
