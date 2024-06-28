@@ -1,28 +1,49 @@
 import QtQuick 2.0
 
 Item {
-    id: id_root
+    id: root
     property int value: 0
     property int startAngle : 0
     property double angleLength: 0
     property int maxSpeed: 0
 
     Rectangle {
-        width: id_root.height * 0.02
-        height: id_root.height * 0.45
+        width: root.height * 0.02
+        height: root.height * 0.45
         color: "grey"
         anchors {
-            horizontalCenter: id_root.horizontalCenter
+            horizontalCenter: root.horizontalCenter
         }
         antialiasing: true
-        y: id_root.height * 0.05
+        y: root.height * 0.05
+
+    }
+    RotationAnimation {
+        id: animation1
+        target: id_speedNeedle
+        loops: Animation.Infinite
+        from: 245
+        to: 100
+        direction: RotationAnimation.Clockwise
+        duration: 2000
+        running: true
     }
 
-    rotation: value * angleLength + startAngle
-
-    antialiasing: true
-
-    Behavior on rotation {
-        SmoothedAnimation { velocity: 50 }
+    RotationAnimation {
+        id: animation2
+        target: id_speedNeedle
+        loops: Animation.Infinite
+        from: 100
+        to: 245
+        direction: RotationAnimation.Counterclockwise
+        duration: 5000
+        running: true
     }
+        rotation: value * angleLength + startAngle
+
+        antialiasing: true
+
+        Behavior on rotation {
+            SmoothedAnimation { velocity: 50 }
+        }
 }

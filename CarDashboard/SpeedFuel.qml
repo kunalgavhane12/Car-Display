@@ -13,10 +13,11 @@ Item {
 
         Text {
             id: speedText
-            text: Math.round(startAngle)+" km/h"
+            text: Math.round(id_speedNeedle.rotation)+" km/h"
             font.pixelSize: 40
             anchors.centerIn: parent
         }
+
     }
 
 
@@ -31,7 +32,7 @@ Item {
         border.width: 2
         Text {
             id: fuelText
-            text: Math.round(startAngle)+" Ltr"
+            text: Math.round(0)+" Ltr"
             font.pixelSize: 40
             anchors.centerIn: parent
         }

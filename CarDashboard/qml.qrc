@@ -2,7 +2,8 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>Speed.qml</file>
-        <file>SpeedFuel.qml</file>
         <file>SpeedNeedle.qml</file>
+        <file>FuelNeedle.qml</file>
+        <file>Fuel.qml</file>
     </qresource>
 </RCC>

@@ -1,4 +1,5 @@
-import QtQuick 2.0
+import QtQuick 2.12
+import QtQuick.Controls 2.12
 
 Item {
     id: root
@@ -6,7 +7,6 @@ Item {
 
     Rectangle {
         id: speed
-
         property int numberIndexs: 10
         property int startAngle: 240
         property int angleLength: 25
@@ -15,7 +15,7 @@ Item {
         anchors.centerIn: parent
         height: Math.min(root.width, root.height)
         width: height
-        radius: width/2
+        radius: width / 2
         color: "black"
         border.color: "grey"
         border.width: speed.height * 0.02
@@ -24,10 +24,10 @@ Item {
             model: speed.numberIndexs
 
             Item {
-                height: speed.height/2
+                height: speed.height / 2
                 transformOrigin: Item.Bottom
                 rotation: index * speed.angleLength + speed.startAngle
-                x: speed.width/2
+                x: speed.width / 2
 
                 Rectangle {
                     height: speed.height * 0.05
@@ -55,14 +55,12 @@ Item {
         }
     }
 
-// Center Circles and Needle and text
     Rectangle {
         id: id_center
-
         anchors.centerIn: parent
-        height: speed.height*0.1
+        height: speed.height * 0.1
         width: height
-        radius: width/2
+        radius: width / 2
         color: "grey"
     }
 
@@ -90,4 +88,3 @@ Item {
         angleLength: speed.angleLength / (speed.maxSpeed / (speed.numberIndexs - 1))
     }
 }
-

@@ -26,11 +26,60 @@ Window {
         Speed{
             anchors.fill: parent
         }
+    }
+
+    Rectangle{
+        id: fuelArea
+        anchors{
+            bottom: speedArea.bottom
+        }
+        x: parent.width - parent.width / 2.5
+        width: parent.width * 0.35
+        height: width
+        color: "black"
+        radius:  width / 2
+
+        Fuel{
+            id: fuel
+            anchors.fill : fuelArea
+            anchors.margins: fuelArea.width * 0.25
+        }
 
     }
 
-    SpeedFuel{
+    Rectangle {
+        x: 90
+        y: 388
+        width: 175
+        height: 63
+        color: "lightgray"
+        border.color: "black"
+        border.width: 2
+        radius: 10
 
+        Text {
+            id: speedText
+            text: Math.round(angleLength)+" km/h"
+            font.pixelSize: 40
+            anchors.centerIn: parent
+        }
+    }
+
+    Rectangle {
+        x: 379
+        y: 388
+        width: 175
+        height: 63
+        color: "#d3d3d3"
+        radius: 10
+        border.color: "#000000"
+        border.width: 2
+        Text {
+            id: fuelText
+            text: Math.round(0)+" Ltr"
+            font.pixelSize: 40
+            anchors.centerIn: parent
+        }
     }
 
 
