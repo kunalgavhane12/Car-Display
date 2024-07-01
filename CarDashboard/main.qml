@@ -8,9 +8,8 @@ Window {
     visible: true
     title: qsTr("Car Dashboard")
 
-    property int value: 0
     property int startAngle : 0
-    property double angleLength: 0
+    property int angleLength: 0
     property int maxSpeed: 0
 
     Rectangle{
@@ -30,19 +29,16 @@ Window {
 
     Rectangle{
         id: fuelArea
-        anchors{
-            bottom: speedArea.bottom
-        }
+        anchors.bottom: speedArea.bottom
         x: parent.width - parent.width / 2.5
-        width: parent.width * 0.35
-        height: width
+        width: 256
+        height: 256
         color: "black"
         radius:  width / 2
+        z: 1
 
         Fuel{
-            id: fuel
-            anchors.fill : fuelArea
-            anchors.margins: fuelArea.width * 0.25
+            anchors.fill : parent
         }
 
     }
@@ -59,7 +55,7 @@ Window {
 
         Text {
             id: speedText
-            text: Math.round(angleLength)+" km/h"
+            text: Math.round(startAngle.rotation)+" km/h"
             font.pixelSize: 40
             anchors.centerIn: parent
         }
@@ -76,7 +72,7 @@ Window {
         border.width: 2
         Text {
             id: fuelText
-            text: Math.round(0)+" Ltr"
+            text: Math.round(startAngle.rotation)+" Ltr"
             font.pixelSize: 40
             anchors.centerIn: parent
         }

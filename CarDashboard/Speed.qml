@@ -3,8 +3,6 @@ import QtQuick.Controls 2.12
 
 Item {
     id: root
-    property int value: 0
-
     Rectangle {
         id: speed
         property int numberIndexs: 10
@@ -40,9 +38,7 @@ Item {
                 }
 
                 Text {
-                    anchors {
-                        horizontalCenter: parent.horizontalCenter
-                    }
+                    anchors.horizontalCenter: parent.horizontalCenter
                     x: 0
                     y: speed.height * 0.09
                     color: "grey"
@@ -83,7 +79,6 @@ Item {
             bottom: speed.bottom
             horizontalCenter: parent.horizontalCenter
         }
-        value: root.value
         startAngle: speed.startAngle
         angleLength: speed.angleLength / (speed.maxSpeed / (speed.numberIndexs - 1))
     }
