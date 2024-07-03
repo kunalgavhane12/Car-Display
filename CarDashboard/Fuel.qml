@@ -9,7 +9,7 @@ Item {
         property int numberIndexs: 5
         property int startAngle: 270
         property int angleLength: 45
-        property int maxFuel: 30
+        property int maxFuel: 40
 
         anchors.centerIn: parent
         height: Math.min(root.width, root.height)
@@ -23,29 +23,28 @@ Item {
             model: fuel.numberIndexs
 
             Item {
-                height: fuel.height/2
+                height: fuel.height / 2
                 transformOrigin: Item.Bottom
                 rotation: index * fuel.angleLength + fuel.startAngle
-                x: fuel.width/2
+                x: fuel.width / 2
 
                 Rectangle {
-                    //                    height: index % 2 == 0 ? fuel.height * 0.15 : fuel.height * 0.1
                     height: fuel.height * 0.05
                     width: height / 2
-                    //                    color: index == 0 ? "red" : "light green"
                     color: "light green"
                     antialiasing: true
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.top: parent.top
                     anchors.topMargin: fuel.height * 0.03
                 }
+
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
                     x: 0
                     y: fuel.height * 0.09
                     color: "white"
                     rotation: 360 - (index * fuel.angleLength + fuel.startAngle)
-                    text: index * (fuel.maxSpeed / (fuel.numberIndexs - 1))
+                    text: index * (fuel.maxFuel / (fuel.numberIndexs - 1))
                     font.pixelSize: fuel.height * 0.05
                     font.family: "Comic Sans MS"
                 }
